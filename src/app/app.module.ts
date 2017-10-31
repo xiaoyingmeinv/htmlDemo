@@ -1,28 +1,26 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
-import { HighlightDirective } from './directive/highlight.directive';
-import { TitleComponent } from './title/title.component';
-import {UserService} from "./service/user.service";
-import { ContactComponent } from './contact/contact/contact.component';
-import {
-  HighlightDirective as ContactHighlightDirective
-} from './contact/highlight.directive';
-import { AwesomePipe } from './contact/awesome.pipe';
-import {ContactService} from "./contact/contact.service";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {NgModule}           from '@angular/core';
+import { BrowserModule }      from '@angular/platform-browser';
 
+/* App Root */
+import { AppComponent }    from './app.component';
+
+
+/* Contact Imports */
+import { ContactModule }  from './contact/contact.module';
+
+import {AppRoutingModule} from "./routing/routing.module";
+import {CoreModule} from "./core/core.module";
 
 
 
 @NgModule({
-  imports:      [ BrowserModule,FormsModule,ReactiveFormsModule],
-  declarations: [ AppComponent,
-    HighlightDirective,
-    TitleComponent,
-    AwesomePipe,
-    ContactComponent,ContactHighlightDirective],
-  providers:    [ ContactService, UserService ],
+  imports:      [
+    BrowserModule,
+    ContactModule,
+    AppRoutingModule,
+
+   CoreModule.forRoot({userName: 'Miss Marple'})],
+  declarations: [ AppComponent],
   bootstrap:    [ AppComponent ],
 })
 export class AppModule { }
