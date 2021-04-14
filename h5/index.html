@@ -6,6 +6,160 @@
     <title>天天油红包</title>
     <style>
         *{ margin:0; padding:0; }
+        .red-packet{
+           background: linear-gradient(180deg, #FF6200 0%, #FC9B02 100%);
+        }
+        .red-packet-title{
+            font-size: 0px;
+        }
+        .red-bg{
+            width:100%;
+            height:186px;
+        }
+        .red-packet-content{
+            width: 100%;
+            font-size: 0px;
+        }
+        .content-orange{
+            background: #FECE85;
+            border-radius: 6px;
+            margin:0px 10px 10px;
+            padding:15px 10px;
+            font-size:12px;
+        }
+        .content-white{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+            background: #FFFFFF;
+            border-radius: 6px;
+        }
+        .left{
+           color:#FF0202;
+           margin-left:25px;
+        }
+        .left span{
+            display:inline-block;
+            font-weight: 600;
+            font-family: PingFangSC-Semibold, PingFang SC;
+        }
+        .left-symbol{
+            font-size:18px;
+        }
+        .left-amount{
+            font-size:32px;
+        }
+        .middle{
+            flex:1;
+            margin-left:15px;
+        }
+        .middle-top{
+            height: 25px;
+            font-size: 16px;
+            font-family: PingFangSC-Medium, PingFang SC;
+            font-weight: 500;
+            color: #FF0202;
+            line-height: 22px;
+        }
+        .middle-center,.middle-bottom{
+            width: 75px;
+            font-size: 12px;
+            font-family: PingFangSC-Light, PingFang SC;
+            font-weight: 300;
+            color: #362C2C;
+            line-height: 17px;
+        }
+        .right{
+            flex:1;
+            width: 96px;
+            height: 32px;
+            background: #EE4F28;
+            border-radius: 25px;
+            margin-right: 20px;
+            font-size: 14px;
+            font-family: PingFangSC-Medium, PingFang SC;
+            font-weight: 500;
+            color: #FFFFFF;
+            line-height: 32px;
+            text-align: center;
+        }
+     .red-packet-bottom{
+        margin:0px 10px;
+        background: #FECE85;
+        border-radius: 6px;
+     }
+     .bottom-title{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        padding:22px 17px 17px 20px;
+     }
+     .bottom-line{
+        width: 97px;
+        height: 1px;
+        background: #D8A354;
+     }
+     .bottom-name{
+        height: 25px;
+        font-size: 16px;
+        font-family: PingFangSC-Light, PingFang SC;
+        font-weight: 300;
+        color: #020202;
+        line-height: 22px;
+     }
+     .bottom-center{
+        padding:0px 17px 0px 20px;
+     }
+     .user-img{
+         width:42px;
+         height:42px;
+     }
+     .user-item{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom:12px;
+     }
+     .user-item-center{
+         flex:1;
+         margin-left:10px;
+     }
+    .user-nickname{
+        font-size: 12px;
+        font-family: PingFangSC-Light, PingFang SC;
+        font-weight: 300;
+        color: #020202;
+        line-height: 17px;
+    }
+    .user-time{
+        font-size: 12px;
+        font-family: PingFangSC-Light, PingFang SC;
+        font-weight: 300;
+        color: #020202;
+        line-height: 17px;
+    }
+    .user-red{
+        font-family: PingFangSC-Light, PingFang SC;
+        font-weight: 300;
+        text-align: right;
+    }
+    .user-red-amount{
+        font-size: 16px;
+        color: #020202;
+        line-height: 22px;
+    }
+    .fabulous{
+        width:20px;
+        height:20px;
+        vertical-align: middle;
+    }
+    .fabulous-text{
+        display:inline-block;
+        font-size: 12px;
+        color: #FE0000;
+        vertical-align: middle;
+    }
     </style>
    <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
    <script>
@@ -34,6 +188,68 @@
    </script>
 </head>
 <body>
-  <div>ssssss</div>
+  <div class="red-packet">
+      <div class="red-packet-title">
+          <img src='./static/red-bg.png' class="red-bg"/>
+      </div>
+      <div class="red-packet-content">
+          <div class="content-orange">
+             <div class="content-white">
+                 <div class="left">
+                     <span class="left-symbol">¥</span>
+                     <span class="left-amount">5</span>
+                     <span class="left-symbol">.0</span>
+                 </div>
+                 <div class="middle">
+                     <div class="middle-top">拼手气小红包</div>
+                     <div class="middle-center">满200元可用</div>
+                     <div class="middle-bottom">3天后到期</div>
+                 </div>
+                 <div class="right">
+                    登录领取
+                 </div>
+             </div>
+          </div>
+      </div>
+      <div class="red-packet-bottom">
+          <div class="bottom-title">
+              <div class="bottom-line"></div>
+              <div class="bottom-name">看看大家手气</div>
+              <div class="bottom-line"></div>
+          </div>
+          <div class="bottom-center">
+              <div class="user-item">
+                 <img src="./static/user.png" class="user-img"/>
+                 <div class="user-item-center">
+                     <div class="user-nickname">微信昵称</div>
+                     <div class="user-time">2021-05-05 11:23:22</div>
+                 </div>
+                 <div class="user-red-amount">1元</div>
+              </div>
+              <div class="user-item">
+                <img src="./static/user.png" class="user-img"/>
+                <div class="user-item-center">
+                    <div class="user-nickname">微信昵称</div>
+                    <div class="user-time">2021-05-05 11:23:22</div>
+                </div>
+                <div class="user-red">
+                    <div class="user-red-amount">1元</div>
+                    <div><img src="./static/fabulous.png" class="fabulous"/><span class="fabulous-text">手气最佳</span></div>
+                </div>
+             </div>
+          </div>
+          <div class="bottom-title">
+            <div class="bottom-line"></div>
+            <div class="bottom-name">活动细则</div>
+            <div class="bottom-line"></div>
+        </div>
+        <div>
+            1.活动时间: 2017年8月14日0:00:00-8月20日23:59:59
+            2.参与条件: 1、所购买商品为指定自营家用电器和家装建材(含彩电、冰洗、厨卫、空调、生活电器、建材六个品类,不含虚拟商品); 2...
+            3.券详情及时间: 1、奖品以等值易券形式发送,返优惠券时间:在顾客下单支付完成后24小时内...
+            4.售后规则 1、返券已经使用,如家电订单产生退货,退货金额为商品的实际支付总价减去返券的...
+        </div>
+      </div>
+  </div>
 </body>
 </html>
