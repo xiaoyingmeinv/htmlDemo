@@ -1,55 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable = 0" />
-    <title>小程序跳转测试</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天天油红包</title>
+    <style>
+        *{ margin:0; padding:0; }
+    </style>
+   <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+   <script>
+       (function(){
+        fetch('https://kol.51zhaoyou.com/test/demo/wechat/ticket').then((res)=>{
+            return res.json();
+        }).then((res)=>{
+            const {noncestr,signature,timestamp}=res||{}
+            wx.config({
+                debug: true,
+                appId: 'wxf242cfefe5353b43',
+                timestamp: timestamp, // 必填，填任意数字即可
+                nonceStr: noncestr, // 必填，填任意非空字符串即可
+                signature: signature, // 必填，填任意非空字符串即可
+                openTagList: ['wx-open-launch-weapp'],
+                jsApiList: ['chooseImage']
+            })
+            wx.ready(function() {
+                    console.log('000')
+            })
+            wx.error(function(err) {
+                console.log(err)
+            });
+        })
+       }())
+   </script>
 </head>
-<body style="text-aligin:center;">
-   <wx-open-launch-weapp
-        id="launch-btn"
-        username="wx38272f3d464aca49" 
-        path="https://test.agent.chebaoweb.com?agentId=A2019090500041&stationId=8521&gunId=828">
-        <template>
-            <button class="btn">打开小程序</button>
-        </template>
-   </wx-open-launch-weapp>
-
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.js"></script>
-<script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script> <!-- 至少必须是1.6版本 -->
-
-<script>
-    
-    $(function () {
-    
-        // config 的参数以及签名=
-        var url = location.href;
-        $.get("url", function(response){
-            if(response.status == 0) {
-                var info = response.data;
-                wx.config({
-                    debug: false,
-                    appId: info.appId,
-                    timestamp: info.timestamp,
-                    nonceStr: info.nonceStr,
-                    signature: info.signature,
-                    jsApiList: ["startRecord", "stopRecord", "onVoiceRecordEnd", "playVoice", "pauseVoice", "stopVoice", "onVoicePlayEnd", "uploadVoice", "downloadVoice", "chooseImage", "previewImage", "uploadImage", "downloadImage", "translateVoice", "getNetworkType", "openLocation", "getLocation"],//必须要不调用小程序标签渲染不出来
-                    openTagList: ['wx-open-launch-weapp']//必须必须要不调用小程序标签渲染不出来
-                });
-            }
-        });
-        //=== 获取 config 的参数以及签名=== end
-        
-        var btn = document.getElementById('launch-btn');
-        btn.addEventListener('launch', function (e) {
-            console.log('success');
-        });
-        btn.addEventListener('error', function (e) {
-            console.log('fail', e.detail);
-        });
-    });
-
-
-</script>
+<body>
+  <div>ssssss</div>
 </body>
 </html>
