@@ -200,28 +200,28 @@
     </style>
    <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
    <script>
-       (function(){
-        fetch('https://kol.51zhaoyou.com/test/demo/wechat/ticket').then((res)=>{
-            return res.json();
-        }).then((res)=>{
-            const {noncestr,signature,timestamp}=res||{}
-            wx.config({
-                debug: true,
-                appId: 'wxf242cfefe5353b43',
-                timestamp: timestamp, // 必填，填任意数字即可
-                nonceStr: noncestr, // 必填，填任意非空字符串即可
-                signature: signature, // 必填，填任意非空字符串即可
-                openTagList: ['wx-open-launch-weapp'],
-                jsApiList: ['chooseImage']
-            })
-            wx.ready(function() {
-                    console.log('000')
-            })
-            wx.error(function(err) {
-                console.log(err)
-            });
-        })
-       }())
+    //    (function(){
+    //     fetch('https://kol.51zhaoyou.com/test/demo/wechat/ticket').then((res)=>{
+    //         return res.json();
+    //     }).then((res)=>{
+    //         const {noncestr,signature,timestamp}=res||{}
+    //         wx.config({
+    //             debug: true,
+    //             appId: 'wxf242cfefe5353b43',
+    //             timestamp: timestamp, // 必填，填任意数字即可
+    //             nonceStr: noncestr, // 必填，填任意非空字符串即可
+    //             signature: signature, // 必填，填任意非空字符串即可
+    //             openTagList: ['wx-open-launch-weapp'],
+    //             jsApiList: ['chooseImage']
+    //         })
+    //         wx.ready(function() {
+    //                 console.log('000')
+    //         })
+    //         wx.error(function(err) {
+    //             console.log(err)
+    //         });
+    //     })
+    //    }())
    </script>
 </head>
 <body>
