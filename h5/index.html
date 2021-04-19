@@ -230,7 +230,7 @@
    </script>
 </head>
 <body>
-  <div class="red-packet">
+  <!-- <div class="red-packet">
       <div class="red-packet-title">
           <img src='./static/red-bg.png' class="red-bg"/>
       </div>
@@ -296,7 +296,7 @@
         </div>
       </div>
   </div>
- 
+  -->
 </body>
 <script>
      var getQueryVariable= function(variable) {
@@ -308,7 +308,12 @@
             }
             return (false)
         }; 
-        document.body.innerHTML= `<div>code: ${getQueryVariable('code')}</div>`
-        console.log('codessss',getQueryVariable('code'))
+        fetch('http://192.168.92.74:8081/mock/27/promotion/grab/051ErnFa1AT3TA0A8XHa1VFBYX2ErnFf', {answer: 42}).then((res)=>{
+            return res.json()
+        }).then((res)=>{
+            console.log('rrrres',res);
+        })
+        // document.body.innerHTML= `<div>code: ${getQueryVariable('code')}</div>`
+        // console.log('codessss',getQueryVariable('code'))
 </script>
 </html>
