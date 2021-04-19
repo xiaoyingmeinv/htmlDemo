@@ -14,7 +14,7 @@
     <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
     <script>
         var goWeixinPage = function(){
-            window.location.replace('https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf242cfefe5353b43&redirect_uri=https%3A%2F%2Ftty.sit.51zhaoyou.com%2Fwidget%2Flist.html&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect')
+            window.location.replace('https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf242cfefe5353b43&redirect_uri=https://xiaoyingmeinv.github.io/htmlDemo/h5/index2.html&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect')
         }
     </script>
 </head>
@@ -32,7 +32,7 @@
             }
             return (false)
         };
-    console.log(window.location)
+ 
     document.body.innerHTML = `
         <div>code: ${getQueryVariable('code')}</div>
     `
