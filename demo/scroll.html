@@ -1,0 +1,45 @@
+<script setup lang="ts">
+    import { onMounted, ref, computed } from 'vue'
+    const getList = () => {
+        // code as before
+    }
+    const container = ref() // container element
+    const blank = ref() // blank element
+    const list = ref([])
+    const page = ref(1)
+    const limit = 200
+    const maxPage = computed(() => Math.ceil(list.value.length / limit))
+    // List of real presentations
+    const showList = computed(() => list.value.slice(0, page.value * limit))
+    const handleScroll = () => {
+        if (page.value > maxPage.value) return
+        const clientHeight = container.value?.clientHeight
+        const blankTop = blank.value?.getBoundingClientRect().top
+        if (clientHeight === blankTop) {
+            // When the blank node appears in the viewport, the current page number is incremented by 1
+            page.value++
+        }
+    }
+    onMounted(async () => {
+        const res = await getList()
+        list.value = res
+    })
+</script>
+
+<template>
+    <div id="container" @scroll="handleScroll" ref="container">
+        <div class="sunshine" v-for="(item) in showList" :key="item.tid">
+            <img :src="item.src" />
+            <span>{{ item.text }}</span>
+        </div>
+        <div ref="blank"></div>
+    </div>
+</template>
+<script>
+    /**
+    延迟加载：
+    虽然后端一次返回这么多数据，但用户的屏幕只能同时显示有限的数据。所以我们可以采用延迟加载的策略，根据用户的滚动位置动态渲染数据。
+    要获取用户的滚动位置，我们可以在列表末尾添加一个空节点空白。每当视口出现空白时，就意味着用户已经滚动到网页底部，这意味着我们需要继续渲染数据。
+    同时，我们可以使用getBoundingClientRect来判断空白是否在页面底部。
+*/
+</script>
